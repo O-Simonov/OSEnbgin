@@ -20,14 +20,15 @@ namespace OsEngine.Robots.FrontRunner.Views
     /// </summary>
     public partial class FrontRannerUi : Window
     {
-        public FrontRannerUi(Models.FrontRannerBot frontRannerBot)
+        public FrontRannerUi(Models.FrontRannerBot bot)
         {
             InitializeComponent();
-        }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
+            vm = new VM(bot);
 
+            DataContext = vm;
         }
+        private VM vm;
+
     }
 }

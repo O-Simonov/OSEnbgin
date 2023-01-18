@@ -1,6 +1,7 @@
 ﻿using OsEngine.Entity;
 using OsEngine.OsTrader.Panels;
 using OsEngine.OsTrader.Panels.Tab;
+using OsEngine.Robots.FrontRunner.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,8 +18,13 @@ namespace OsEngine.Robots
             _robot = robot;
         }
 
-       private MyRobot _robot;
-      
+        public VM(FrontRannerBot bot)
+        {
+            this.bot = bot;
+        }
+
+        private MyRobot _robot;
+        private FrontRannerBot bot;
     }
 
 

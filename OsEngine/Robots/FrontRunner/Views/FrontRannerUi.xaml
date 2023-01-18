@@ -41,7 +41,7 @@
         <Button x:Name="Start" Content ="{Binding Edit}"
                 Command="{Binding CommandStart}"
                 Grid.Column="1"
-                Grid.Row="4" Click="Button_Click"/>
+                Grid.Row="4"/>
         
 
     </Grid>

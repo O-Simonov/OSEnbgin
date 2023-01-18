@@ -84,28 +84,7 @@ namespace OsEngine.Robots.FrontRunner.ViewModels
         }
         private Edit _edit;
 
-        //public List<Edit> Start { get; set; } = new List<Edit>()
-        //{
-        //      Edit.Start,
-
-        //       Edit.Stop
-        //};
-
-
-
-        //public int IndexEdit
-        //{
-        //    get => _indexEdit;
-
-        //    set
-        //    {
-        //        _indexEdit = value;
-        //        OnPropertyChanged(nameof(IndexEdit));
-               
-        //    }
-        //}
-        //private int _indexEdit = 0;
-
+  
 
         #endregion
 

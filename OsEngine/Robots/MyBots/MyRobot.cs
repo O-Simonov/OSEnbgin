@@ -74,7 +74,7 @@ namespace OsEngine.Robots
         /// </summary>
         private int _punkts = 0;
         /// <summary>
-        /// Свеча для выставления стопа
+        /// Хвост Свечи для выставления стопа
         /// </summary>
         private decimal _lowCandles = 0;
         /// <summary>
@@ -89,7 +89,7 @@ namespace OsEngine.Robots
         private void _tab_CandleFinishedEvent(List<Candle> candles)
         {
             if (candles.Count < _countDownCandels.ValueInt + 1
-                || candles.Count < _countCandles.ValueInt +1)
+                || candles.Count < _countCandles.ValueInt + 1)
             {
                 return;
             }
@@ -112,7 +112,7 @@ namespace OsEngine.Robots
 
             Candle candle = candles[candles.Count - 1];
 
-            if (candle.Close < (candle.High + candle.Low)/2
+            if (candle.Close < (candle.High + candle.Low) / 2
                 || candle.Volume < _averageVolume * _koefVolume.ValueDecimal)
             {
                 return;
@@ -124,9 +124,9 @@ namespace OsEngine.Robots
                 {
                     return;
                 }
-            }       
-
-            _punkts = (int)((candle.Close - candle.Low)/_tab.Securiti.PriceStep);
+            }
+           
+                _punkts = (int)((candle.Close - candle.Low)/_tab.Securiti.PriceStep);
 
             if (_punkts < 5) 
             {
@@ -167,7 +167,9 @@ namespace OsEngine.Robots
 
         }
 
-        private void _tab_PositionClosingSuccesEvent(Position pos)
+        
+       
+    private void _tab_PositionClosingSuccesEvent(Position pos)
         {
             SeveCSV(pos);
         }
