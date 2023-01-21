@@ -87,7 +87,7 @@ namespace OsEngine.Robots.FrontRunner.Models
 
         private void _tab_MarketDepthUpdateEvent(MarketDepth marketDepth)
         {
-            if (Edit== Edit.Stop)
+            if (Edit == Edit.Stop)
             {
                 return;
             }

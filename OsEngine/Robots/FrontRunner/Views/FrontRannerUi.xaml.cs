@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using OsEngine.Robots.FrontRunner.ViewModels;
 
 namespace OsEngine.Robots.FrontRunner.Views
 {
@@ -20,15 +21,14 @@ namespace OsEngine.Robots.FrontRunner.Views
     /// </summary>
     public partial class FrontRannerUi : Window
     {
-        public FrontRannerUi(Models.FrontRannerBot bot)
+        public FrontRannerUi(Models.FrontRannerBot frontRannerBot)
         {
             InitializeComponent();
 
-            vm = new VM(bot);
-
-            DataContext = vm;
+            DataContext = new OsEngine.Robots.FrontRunner.ViewModels.VM(frontRannerBot); 
         }
-        private VM vm;
+
+      
 
     }
 }

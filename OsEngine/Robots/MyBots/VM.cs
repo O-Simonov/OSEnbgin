@@ -25,6 +25,11 @@ namespace OsEngine.Robots
 
         private MyRobot _robot;
         private FrontRannerBot bot;
+
+        public static implicit operator VM(FrontRunner.ViewModels.VM v)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 

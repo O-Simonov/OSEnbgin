@@ -125,7 +125,6 @@ namespace OsEngine.Robots.FrontRunner.ViewModels
     public enum Edit
     {
          Start,
-
          Stop
     }
 
