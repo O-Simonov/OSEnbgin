@@ -1,5 +1,6 @@
 ﻿using OsEngine.Charts.CandleChart.Indicators;
 using OsEngine.Entity;
+using OsEngine.Market.Servers.Tinkoff.TinkoffJsonSchema;
 using OsEngine.OsTrader.Panels;
 using OsEngine.OsTrader.Panels.Tab;
 using System;
@@ -39,13 +40,20 @@ namespace OsEngine.Robots
 
             _tab.PositionClosingSuccesEvent += _tab_PositionClosingSuccesEvent;
 
+            _tab.NewTickEvent += _tab_NewTickEvent;
+
+
         }
 
+        private void _tab_NewTickEvent(Trade trade)
+        {
+            _lastPrice = trade.Price;
 
-
-
+        }
+        decimal _lastPrice = 0; //последняя цена закрытия свечи
 
         #region Fields==========================================================================
+
 
         private BotTabSimple _tab;
 
@@ -105,12 +113,21 @@ namespace OsEngine.Robots
 
             List<Position> position = _tab.PositionOpenLong;
 
-            if (position.Count > 0)
+          
+            if (position.Count > 0) // проверяем есть ли открытые позиции
             {
+                for (int i=0; i < position.Count;i++)
+                {
+                    
+                    if (position[i].EntryPrice < _lastPrice - (position[i].EntryPrice -_lowCandles - 100 * _tab.Securiti.PriceStep))//Проверка ухода цены на велечину выставленного стопа
+                    {
+                        _tab.CloseAtStop(position[i], position[i].EntryPrice, position[i].EntryPrice - 100 * _tab.Securiti.PriceStep);//перенос стопа в безубыток
+                    }
+                }
                 return;
             }
 
-            Candle candle = candles[candles.Count - 1];
+            Candle candle = candles[candles.Count - 1]; // последняя свеча
 
             if (candle.Close < (candle.High + candle.Low) / 2
                 || candle.Volume < _averageVolume * _koefVolume.ValueDecimal)

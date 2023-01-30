@@ -17,20 +17,8 @@ namespace OsEngine.Robots
         {
             _robot = robot;
         }
-
-        public VM(FrontRannerBot bot)
-        {
-            this.bot = bot;
-        }
-
         private MyRobot _robot;
-        private FrontRannerBot bot;
-
-        public static implicit operator VM(FrontRunner.ViewModels.VM v)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
-
 
 }
