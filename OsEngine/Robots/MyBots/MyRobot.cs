@@ -45,7 +45,7 @@ namespace OsEngine.Robots
 
         }
 
-        private void _tab_NewTickEvent(Trade trade)
+        private void _tab_NewTickEvent(Trade trade) // событие последнего трейда
         {
             _lastPrice = trade.Price;
 
@@ -113,7 +113,11 @@ namespace OsEngine.Robots
 
             List<Position> position = _tab.PositionOpenLong;
 
-          
+
+            decimal _lastPrice = candles.Last().Close;
+
+
+
             if (position.Count > 0) // проверяем есть ли открытые позиции
             {
                 for (int i=0; i < position.Count;i++)
@@ -121,7 +125,7 @@ namespace OsEngine.Robots
                     
                     if (position[i].EntryPrice < _lastPrice - (position[i].EntryPrice -_lowCandles - 100 * _tab.Securiti.PriceStep))//Проверка ухода цены на велечину выставленного стопа
                     {
-                        _tab.CloseAtStop(position[i], position[i].EntryPrice, position[i].EntryPrice - 100 * _tab.Securiti.PriceStep);//перенос стопа в безубыток
+                        _tab.CloseAtStop(position[i], position[i].EntryPrice, position[i].EntryPrice + 100 * _tab.Securiti.PriceStep);//перенос стопа в безубыток
                     }
                 }
                 return;
