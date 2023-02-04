@@ -902,6 +902,7 @@
     <Compile Include="Robots\FrontRunner\Views\FrontRannerUi.xaml.cs">
       <DependentUpon>FrontRannerUi.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Robots\HFT\HFTBot.cs" />
     <Compile Include="Robots\MyBots\BaseVM.cs" />
     <Compile Include="Robots\MyBots\MyRobot.cs" />
     <Compile Include="Robots\MyBots\VM.cs" />

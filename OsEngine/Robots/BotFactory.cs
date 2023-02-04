@@ -24,6 +24,7 @@ using OsEngine.Robots.Trend;
 using OsEngine.Robots.OnScriptIndicators;
 using OsEngine.Robots.Screeners;
 using OsEngine.Robots.FrontRunner.Models;
+using OsEngine.Robots.HFT;
 
 namespace OsEngine.Robots
 {
@@ -39,6 +40,7 @@ namespace OsEngine.Robots
         {
             List<string> result = new List<string>();
 
+            result.Add("HFTBot");
             result.Add("FrontRannerBot");
             result.Add("MyRobot");
             result.Add("SmaScreener");
@@ -120,6 +122,11 @@ namespace OsEngine.Robots
             {
                 bot = CreateScriptStrategyByName(nameClass, name, startProgram);
                 return bot;
+            }
+
+            if (nameClass == "HFTBot")
+            {
+                bot = new HFTBot(name, startProgram);
             }
 
             if (nameClass == "FrontRannerBot")
