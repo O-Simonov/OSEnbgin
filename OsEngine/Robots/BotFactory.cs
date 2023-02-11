@@ -25,6 +25,7 @@ using OsEngine.Robots.OnScriptIndicators;
 using OsEngine.Robots.Screeners;
 using OsEngine.Robots.FrontRunner.Models;
 using OsEngine.Robots.HFT;
+using OsEngine.Robots.CryptoClaster;
 
 namespace OsEngine.Robots
 {
@@ -41,6 +42,7 @@ namespace OsEngine.Robots
             List<string> result = new List<string>();
 
             result.Add("HFTBot");
+            result.Add("RobotCluster");
             result.Add("FrontRannerBot");
             result.Add("MyRobot");
             result.Add("SmaScreener");
@@ -127,6 +129,11 @@ namespace OsEngine.Robots
             if (nameClass == "HFTBot")
             {
                 bot = new HFTBot(name, startProgram);
+            }
+
+            if (nameClass == "RobotCluster")
+            {
+                bot = new RobotCluster(name, startProgram);
             }
 
             if (nameClass == "FrontRannerBot")

@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OsEngine</RootNamespace>
     <AssemblyName>OsEngine</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -896,6 +896,7 @@
     </Compile>
     <Compile Include="Robots\BotFactory.cs" />
     <Compile Include="Robots\CounterTrend\ClusterCountertrend.cs" />
+    <Compile Include="Robots\CryptoCluster\RobotCluster.cs" />
     <Compile Include="Robots\FrontRunner\Models\FrontRanner.cs" />
     <Compile Include="Robots\FrontRunner\ViewModels\BaseVM.cs" />
     <Compile Include="Robots\FrontRunner\ViewModels\VM.cs" />
@@ -1040,6 +1041,10 @@
     <Compile Include="Robots\Patterns\ThreeSoldier.cs" />
     <Compile Include="Robots\MarketMaker\TwoLegArbitrage.cs" />
     <Compile Include="Robots\CounterTrend\WilliamsRangeTrade.cs" />
+    <Compile Include="ViewModels\MyRobotVM.cs" />
+    <Compile Include="Views\MyRobot.xaml.cs">
+      <DependentUpon>MyRobot.xaml</DependentUpon>
+    </Compile>
     <Page Include="Alerts\AlertMessageFullUi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1565,6 +1570,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PrimeSettings\PrimeSettingsMasterUi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MyRobot.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
